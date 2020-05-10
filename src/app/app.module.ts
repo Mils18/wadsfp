@@ -39,6 +39,7 @@ import { AccountpageComponent } from './accountpage/accountpage.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
+import { MyStorePageComponent } from './my-store-page/my-store-page.component';
 
 @NgModule({
   imports: [
@@ -50,6 +51,7 @@ import { CartpageComponent } from './cartpage/cartpage.component';
       { path: 'home', component: HomepageComponent },
       { path: 'account', component: AccountpageComponent },
       { path: 'cart', component: CartpageComponent },
+      { path: 'myStore', component: MyStorePageComponent },
 
     ])
   ],
@@ -63,6 +65,7 @@ import { CartpageComponent } from './cartpage/cartpage.component';
     FooterComponent,
     HeaderComponent,
     CartpageComponent,
+    MyStorePageComponent,
     
   ],
   bootstrap: [ AppComponent ]

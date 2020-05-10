@@ -12,4 +12,7 @@ export class AccountpageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToMyStore() {
+    window.alert('You will be notified when the product goes on sale');
+  }
 }
