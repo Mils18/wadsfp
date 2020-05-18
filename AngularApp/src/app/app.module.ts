@@ -43,6 +43,7 @@ import { HeaderComponent } from './header/header.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { ProductComponent } from './product/product.component';
 import { Product } from './shared/product.model';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   imports: [
@@ -55,6 +56,8 @@ import { Product } from './shared/product.model';
       { path: 'account', component: AccountpageComponent },
       { path: 'cart', component: CartpageComponent },
       { path: 'manageProduct', component: ProductComponent },
+      { path: 'manageProduct/addProduct', component: AddProductComponent },
+
     ]),
     FormsModule,
     HttpClientModule
@@ -70,6 +73,7 @@ import { Product } from './shared/product.model';
     HeaderComponent,
     CartpageComponent,
     ProductComponent,
+    AddProductComponent,
     
   ],
   bootstrap: [ AppComponent ]

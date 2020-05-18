@@ -63,11 +63,11 @@ export class ProductComponent implements OnInit {
     this.productService.selectedProduct = emp;
   }
 
-  onDelete(_id: string, form: NgForm) {
+  onDelete(_id: string) {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.productService.deleteProduct(_id).subscribe((res) => {
         this.refreshProductList();
-        this.resetForm(form);
+        // this.resetForm(form);
         // var toastHTML_delete = ''
         M.toast({html: 'I am a toast!', classes: 'rounded'});
         M.toast({ html: 'Deleted successfully', classes: 'rounded' });
