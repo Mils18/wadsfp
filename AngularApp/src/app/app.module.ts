@@ -31,42 +31,34 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { AccountpageComponent } from './accountpage/accountpage.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
 import { ProductComponent } from './product/product.component';
-import { Product } from './shared/product.model';
 import { AddProductComponent } from './add-product/add-product.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { SignupComponent } from './signup/signup.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { Product2Component } from './product2/product2.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+// import { ProductDetailsNewComponent } from './product-details-new/product-details-new.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomepageComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'home', component: HomepageComponent },
-      { path: 'account', component: AccountpageComponent },
-      { path: 'cart', component: CartpageComponent },
-      { path: 'manageProduct', component: ProductComponent },
-      { path: 'manageProduct/addProduct', component: AddProductComponent },
-
-    ]),
+    AppRoutingModule,
     FormsModule,
     HttpClientModule
   ],
   declarations: [
     AppComponent,
-    ProductListComponent,
-    ProductAlertsComponent,
-    ProductDetailsComponent,
     HomepageComponent,
     AccountpageComponent,
     FooterComponent,
@@ -74,7 +66,13 @@ import { AddProductComponent } from './add-product/add-product.component';
     CartpageComponent,
     ProductComponent,
     AddProductComponent,
-    
+    LoginComponent,
+    RegisterComponent,
+    SignupComponent,
+    EmployeeComponent,
+    Product2Component,
+    ProductDetailsComponent,
+    // ProductDetailsNewComponent,
   ],
   bootstrap: [ AppComponent ]
 })

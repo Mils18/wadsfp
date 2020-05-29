@@ -1,8 +1,102 @@
-<h2>Product Details</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
+<body>
 
-</div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+        <h1 class="my-4">Shop Name</h1>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">Category 1</a>
+          <a href="#" class="list-group-item">Category 2</a>
+          <a href="#" class="list-group-item">Category 3</a>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="card mt-4">
+          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+          <div class="card-body">
+            <h3 class="card-title">{{this.name}} </h3>
+            <h4>{{this.price}}</h4>
+            <p class="card-text">{{this.description}}</p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+            5.0 stars
+          </div>
+          <a href="#" class="btn btn-success">Check Out</a>
+        </div>
+        <!-- /.card -->
+
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Product Reviews
+          </div>
+          <div class="card-body">
+
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+            5.0 stars
+            <p>Delivery is fast. It came without damage. Everything works, added through smart life :)</p>
+            <small class="text-muted">Posted by Anonymous on 29/5/2020</small>
+
+            <hr>
+
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+            5.0 stars
+            <p>Very good product. Does what it should. By integrating into smart life ecosystem allows for many cool automations </p>
+            <small class="text-muted">Posted by Anonymous on 29/5/2020</small>
+
+            <hr>
+
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+            5.0 stars
+            <p>Well packed, looks and feels quality goods. And most importantly very small sizes</p>
+            <small class="text-muted">Posted by Anonymous on 29/5/2020</small>
+            </div>
+        </div>
+        <!-- /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+</body>
+
+</html>

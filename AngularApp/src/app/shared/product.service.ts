@@ -26,11 +26,15 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   postProduct(emp: Product) {
+    console.log('postProd')
     return this.http.post(this.baseURL, emp);
   }
 
   getProductList() {
     return this.http.get(this.baseURL);
+  }
+  getSpecificProduct(_id: string) {
+    return this.http.get(this.baseURL + `/${_id}`);
   }
 
   putProduct(emp: Product) {

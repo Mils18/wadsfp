@@ -17,40 +17,8 @@ export class ProductComponent implements OnInit {
   constructor(public productService: ProductService) { }
 
   ngOnInit() {
-    this.resetForm();
+    // this.resetForm();
     this.refreshProductList();
-  }
-
-  resetForm(form?: NgForm) {
-    if (form)
-      form.reset();
-    
-    this.productService.selectedProduct = {
-      _id: "",
-      name: "",
-      description: "",
-      price: null
-    }
-    M.toast({ html: 'Reset successfully', classes: 'rounded' });
-  }
-
-  onSubmit(form: NgForm) {
-    if (form.value._id == "") {
-      M.toast({ html: 'Blank', classes: 'rounded' });
-      this.productService.postProduct(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshProductList();
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
-      });
-    }
-    
-    else {
-      this.productService.putProduct(form.value).subscribe((res) => {
-        this.resetForm(form);
-        this.refreshProductList();
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
-      });
-    }
   }
 
   refreshProductList() {

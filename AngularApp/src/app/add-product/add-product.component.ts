@@ -1,18 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-add-product',
-//   templateUrl: './add-product.component.html',
-//   styleUrls: ['./add-product.component.css']
-// })
-// export class AddProductComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -21,12 +6,6 @@ import { Product } from '../shared/product.model';
 
 declare var M: any;
 
-// @Component({
-//   selector: 'app-product',
-//   templateUrl: './product.component.html',
-//   styleUrls: ['./product.component.css'],
-//   providers: [ProductService]
-// })
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -57,20 +36,24 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (form.value._id == "") {
-      M.toast({ html: 'Blank', classes: 'rounded' });
-      this.addProductService.postProduct(form.value).subscribe((res) => {
-        this.resetForm(form);
-        M.toast({ html: 'Saved successfully', classes: 'rounded' });
-      });
-    }
+    console.log("Submit btn clicked");
+    console.log(form.value);
+    // if (form.value._id == "") {
+    //   console.log("2");
+    //   M.toast({ html: 'Blank', classes: 'rounded' });
+    //   this.addProductService.postProduct(form.value).subscribe((res) => {
+    //     console.log("3");
+    //     this.resetForm(form);
+    //     M.toast({ html: 'Saved successfully', classes: 'rounded' });
+    //   });
+    // }
     
-    else {
-      this.addProductService.putProduct(form.value).subscribe((res) => {
-        this.resetForm(form);
-        M.toast({ html: 'Updated successfully', classes: 'rounded' });
-      });
-    }
+    // else {
+    //   this.addProductService.putProduct(form.value).subscribe((res) => {
+    //     this.resetForm(form);
+    //     M.toast({ html: 'Updated successfully', classes: 'rounded' });
+    //   });
+    // }
   }
 
 }

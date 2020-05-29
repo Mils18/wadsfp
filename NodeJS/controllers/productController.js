@@ -1,7 +1,7 @@
 const express = require('express');
 var router = express.Router();
 var ObjectId = require('mongoose').Types.ObjectId;
-
+const checkAuth = require('../middleware/check-auth');
 var { Product } = require('../models/product');
 
 // => localhost:3000/products/
@@ -21,6 +21,7 @@ router.get('/:id', (req, res) => {
         else { console.log('Error in Retriving Product :' + JSON.stringify(err, undefined, 2)); }
     });
 });
+
 
 // parses Product objects into var emp, save it to 
 // Post Requests
