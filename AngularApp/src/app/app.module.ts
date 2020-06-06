@@ -30,12 +30,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { AccountpageComponent } from './accountpage/accountpage.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { CartpageComponent } from './cartpage/cartpage.component';
@@ -43,11 +42,14 @@ import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { SignupComponent } from './signup/signup.component';
-import { EmployeeComponent } from './employee/employee.component';
-import { Product2Component } from './product2/product2.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 // import { ProductDetailsNewComponent } from './product-details-new/product-details-new.component';
+// import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { TestpageComponent } from './testpage/testpage.component';
+import { AccountSellerComponent } from './account-seller/account-seller.component';
+import { AccountBuyerComponent } from './account-buyer/account-buyer.component';
+import { OpenStoreComponent } from './open-store/open-store.component';
 
 @NgModule({
   imports: [
@@ -60,7 +62,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   declarations: [
     AppComponent,
     HomepageComponent,
-    AccountpageComponent,
     FooterComponent,
     HeaderComponent,
     CartpageComponent,
@@ -68,12 +69,17 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     AddProductComponent,
     LoginComponent,
     RegisterComponent,
-    SignupComponent,
-    EmployeeComponent,
-    Product2Component,
     ProductDetailsComponent,
+    TestpageComponent,
+    AccountSellerComponent,
+    AccountBuyerComponent,
+    OpenStoreComponent,
     // ProductDetailsNewComponent,
   ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

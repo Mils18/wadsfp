@@ -1,9 +1,7 @@
 export class User {
-    _id: string;
+    id: string;
     firstName: string;
     lastName: string;
-    email: string;
-    password: string;
+    token?: string;
     storeName: string;
-    idCardNumber: string;
 }

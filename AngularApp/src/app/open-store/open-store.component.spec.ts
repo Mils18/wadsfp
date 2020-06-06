@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AccountpageComponent } from './accountpage.component';
+import { OpenStoreComponent } from './open-store.component';
 
-describe('AccountpageComponent', () => {
-  let component: AccountpageComponent;
-  let fixture: ComponentFixture<AccountpageComponent>;
+describe('OpenStoreComponent', () => {
+  let component: OpenStoreComponent;
+  let fixture: ComponentFixture<OpenStoreComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountpageComponent ]
+      declarations: [ OpenStoreComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AccountpageComponent);
+    fixture = TestBed.createComponent(OpenStoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

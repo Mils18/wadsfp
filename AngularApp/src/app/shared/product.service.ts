@@ -41,6 +41,10 @@ export class ProductService {
     return this.http.put(this.baseURL + `/${emp._id}`, emp);
   }
 
+  putProductTest(id: String){
+    return this.http.put(this.baseURL + `/${id}`,"abcde");
+  }
+
   deleteProduct(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }

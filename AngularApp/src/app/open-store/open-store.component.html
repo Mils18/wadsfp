@@ -1,0 +1,42 @@
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+      <h4 class="card-header">Store Information</h4>
+      <div class="card-body">
+
+        
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+          <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id" value="66260" >
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" name="storeName" #name="ngModel" [(ngModel)]="userService.selectedUser.storeName" placeholder="Mils Store" required>
+              <label>Store Name :
+                <label class="red-text">*</label>
+              </label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" name="idCardNumber" #name="ngModel" [(ngModel)]="userService.selectedUser.idCardNumber" placeholder="21001200520012" required>
+              <label>Id Card Number :
+                <label class="red-text">*</label>
+              </label>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="input-field col s12">
+              <button class="btn btn-custom right" type="submit" [disabled]="!userForm.valid" >Submit</button>
+            </div>
+          </div>
+         
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+
+        </form>
+
+
+      </div>
+    </div>
+</div>

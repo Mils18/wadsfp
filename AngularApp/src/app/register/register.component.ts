@@ -1,10 +1,10 @@
 // import { Component, OnInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { UserService } from '../shared/user.service';
 import { User } from '../shared/user.model';
-import { ToastService } from '../toast-service';
 
 declare var M: any;
 
@@ -15,30 +15,26 @@ declare var M: any;
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public registerService: UserService,
-     public toastService: ToastService) { }
+  constructor(
+    public registerService: UserService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.resetForm();
   }
-  // showStandard() {
-  //   this.toastService.show('I am a standard toast');
-  // }
-  // showSuccess() {
-  //   this.toastService.show('I am a success toast', { classname: 'bg-success text-light', delay: 10000 });
-  // }
-
-  // showDanger(dangerTpl) {
-  //   this.toastService.show(dangerTpl, { classname: 'bg-danger text-light', delay: 15000 });
-  // }
   resetForm(form?: NgForm) {
     if (form)
       form.reset();
     
     this.registerService.selectedUser = {
       _id: "",
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
+      storeName:"",
+      idCardNumber:"",
     }
     // M.toast({ html: 'Reset successfully', classes: 'rounded' });
     M.toast({html: 'Reset Form</p>'})
@@ -49,13 +45,11 @@ export class RegisterComponent implements OnInit {
     console.log(form.value);
     
     if (form.value._id == "") {
-      console.log("2");
       M.toast({ html: 'Blank', classes: 'rounded' });
-      this.registerService.postUser(form.value).subscribe((res) => {
-        console.log("3");
+      this.registerService.signUpUser(form.value).subscribe((res) => {
         this.resetForm(form);
-        // if (!err) { res.send(doc); }
         M.toast({ html: 'Saved successfully' });
+        this.router.navigate(['/login']);
       });
     }
     

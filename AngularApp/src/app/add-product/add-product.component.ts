@@ -28,6 +28,7 @@ export class AddProductComponent implements OnInit {
     
     this.addProductService.selectedProduct = {
       _id: "",
+      ownedBy:"",
       name: "",
       description: "",
       price: null
@@ -38,22 +39,13 @@ export class AddProductComponent implements OnInit {
   onSubmit(form: NgForm) {
     console.log("Submit btn clicked");
     console.log(form.value);
-    // if (form.value._id == "") {
-    //   console.log("2");
-    //   M.toast({ html: 'Blank', classes: 'rounded' });
-    //   this.addProductService.postProduct(form.value).subscribe((res) => {
-    //     console.log("3");
-    //     this.resetForm(form);
-    //     M.toast({ html: 'Saved successfully', classes: 'rounded' });
-    //   });
-    // }
-    
-    // else {
-    //   this.addProductService.putProduct(form.value).subscribe((res) => {
-    //     this.resetForm(form);
-    //     M.toast({ html: 'Updated successfully', classes: 'rounded' });
-    //   });
-    // }
+    if (form.value._id == "") {
+      M.toast({ html: 'Blank', classes: 'rounded' });
+      this.addProductService.postProduct(form.value).subscribe((res) => {
+        this.resetForm(form);
+        M.toast({ html: 'Saved successfully', classes: 'rounded' });
+      });
+    }
   }
 
 }

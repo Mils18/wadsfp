@@ -14,16 +14,16 @@
                         <th></th>
                       </tr>
                     </thead>
-                    <tr *ngFor="let emp of productService.products">
-                      <td>{{emp.name}}</td>
-                      <td>{{emp.description}}</td>
-                      <td>{{emp.price}}</td>
+                    <tr *ngFor="let prod of productService.products">
+                      <td>{{prod.name}}</td>
+                      <td>{{prod.description}}</td>
+                      <td>{{prod.price}}</td>
                       <td>
-                          <a class="action-btn" (click)="onEdit(emp)">
+                          <!-- <a class="action-btn" (click)="onEdit(prod)">
                             <i class="material-icons"><u>edit</u></i>
-                          </a>
-                          <p>  </p>
-                          <a class="action-btn" (click)="onDelete(emp._id)">
+                          </a> -->
+                          <!-- <p>  </p> -->
+                          <a class="action-btn" (click)="onDelete(prod._id)">
                             <i class="material-icons"><u>delete</u></i>
                           </a>
                         </td>

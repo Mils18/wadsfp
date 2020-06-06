@@ -28,16 +28,18 @@ export class ProductComponent implements OnInit {
   }
 
   onEdit(emp: Product) {
-    this.productService.selectedProduct = emp;
+    // this.productService.selectedProduct = emp;
+    // String id = emp._id;
+    this.productService.putProductTest("5ec275570de3b408ac7167f9").subscribe((res) => {
+      this.refreshProductList();
+      M.toast({ html: 'Updated successfully', classes: 'rounded' });
+    });
   }
 
   onDelete(_id: string) {
     if (confirm('Are you sure to delete this record ?') == true) {
       this.productService.deleteProduct(_id).subscribe((res) => {
         this.refreshProductList();
-        // this.resetForm(form);
-        // var toastHTML_delete = ''
-        M.toast({html: 'I am a toast!', classes: 'rounded'});
         M.toast({ html: 'Deleted successfully', classes: 'rounded' });
       });
     }
