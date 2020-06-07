@@ -4,6 +4,10 @@ import { NgForm } from '@angular/forms';
 import { ProductService } from '../shared/product.service';
 import { Product } from '../shared/product.model';
 
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from '../_services';
+import { User } from '../_models';
 declare var M: any;
 
 @Component({
@@ -14,22 +18,27 @@ declare var M: any;
 })
 export class ProductComponent implements OnInit {
 
-  constructor(public productService: ProductService) { }
+  user:User;
 
-  ngOnInit() {
-    // this.resetForm();
+  constructor(
+    public productService: ProductService,
+    private router: Router,
+    private authenticationService: AuthenticationService) { 
+      this.authenticationService.currentUser.subscribe(x => this.user = x);
+    }
+
+  ngOnInit(): void {
     this.refreshProductList();
+    this.user = this.authenticationService.getLocalStorage();
   }
 
   refreshProductList() {
-    this.productService.getProductList().subscribe((res) => {
+    this.productService.getProductListSellerId(this.user.id).subscribe((res) => {
       this.productService.products = res as Product[];
     });
   }
 
   onEdit(emp: Product) {
-    // this.productService.selectedProduct = emp;
-    // String id = emp._id;
     this.productService.putProductTest("5ec275570de3b408ac7167f9").subscribe((res) => {
       this.refreshProductList();
       M.toast({ html: 'Updated successfully', classes: 'rounded' });

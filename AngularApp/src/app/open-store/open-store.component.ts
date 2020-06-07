@@ -13,7 +13,6 @@ declare var M: any;
 })
 export class OpenStoreComponent implements OnInit {
 
-  currentUser: User;
   loading = false;
   user:User;
   storeName:string='';
@@ -24,7 +23,7 @@ export class OpenStoreComponent implements OnInit {
     public userService: UserService,
     private router: Router,
     private authenticationService: AuthenticationService) { 
-      this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      this.authenticationService.currentUser.subscribe(x => this.user = x);
     }
 
   ngOnInit(): void {
@@ -45,12 +44,10 @@ export class OpenStoreComponent implements OnInit {
         idCardNumber:"",
       }
 
-    // M.toast({ html: 'Reset successfully', classes: 'rounded' });
     M.toast({html: 'Reset Form</p>'})
   }
 
   onSubmit(form: NgForm) {
-    var myJSON = JSON.stringify(form.value);
     form.controls['_id'].setValue(this.user.id);
 
     this.userService.registerStore(form.value)
@@ -61,18 +58,6 @@ export class OpenStoreComponent implements OnInit {
     }   , error => {
       this.error = error;
       });
-
-    // if (form.value._id == "") {
-    // console.log("Test2",form.value);
-    // this.userService.registerStore("5eda670231e15639aca33671",form.value)
-      // .subscribe((res) => {
-      //   this.router.navigate(['/account/seller']);
-      // });
-    // }
-    
-    // else {
-    //   M.toast({ html: 'Wrong Format', classes: 'rounded' });
-    // }
   }
 
 }

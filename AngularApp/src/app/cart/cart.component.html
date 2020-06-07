@@ -1,0 +1,42 @@
+<!-- <button type="button" class="btn btn-primary" [routerLink]="['/manageProduct/addProduct']">Add Product</button> -->
+
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="row">
+                <table class="responsive-table highlight" style="color:black">
+                    <thead>
+                      <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let cart of cartService.carts">
+                      <td>{{cart.name}}</td>
+                      <td>{{cart.price}}</td>
+                      <td>
+                        <a class="action-btn" (click)="onDelete(cart._id)">
+                          <i class="material-icons"><u>delete</u></i>
+                        </a>
+                      </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Total</th>
+                        <th>Rp. {{totalPrice}}</th>
+                        <th></th>
+
+                      </tr>
+                  </table>
+          </div>
+          <!-- <div class="row">
+            <h3 style="color:black">Total</h3>
+                <p style="color:black">Rp. </p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  
+  </div>

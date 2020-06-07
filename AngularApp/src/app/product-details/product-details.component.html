@@ -3,47 +3,19 @@
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <!-- Page Content -->
   <div class="container">
 
     <div class="row">
 
-      <div class="col-lg-3">
-        <h1 class="my-4">Shop Name</h1>
+      <!-- <div class="col-lg-3">
+        <h1 class="my-4">{{this.sellerId}}</h1>
         <div class="list-group">
           <a href="#" class="list-group-item active">Category 1</a>
           <a href="#" class="list-group-item">Category 2</a>
           <a href="#" class="list-group-item">Category 3</a>
         </div>
-      </div>
+      </div> -->
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
@@ -57,7 +29,17 @@
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
             5.0 stars
           </div>
-          <a href="#" class="btn btn-success">Check Out</a>
+          <!-- <div class = "row">
+ 
+          </div> -->
+          <!-- <div class="number-input md-number-input">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+            <input class="quantity" min="0" name="quantity" value="1" type="number">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+          </div> -->
+  
+          <button class="btn btn-success" *ngIf="!itsMyProduct" type="button" (click)="addToCartBtn()">Add to Cart</button>
+
         </div>
         <!-- /.card -->
 

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
-form div.input-field input{
+/* form div.input-field input{
     padding-left: 15px !important;
     color: #25a297;
 }
@@ -17,8 +17,6 @@ input.ng-invalid.ng-dirty{
     border: #fff solid 1px ;
     text-transform:none;
 }
-
-
 
 .vl {
     border-left: 2px solid #9e9e9e;
@@ -40,4 +38,4 @@ a.action-btn:hover{
     bottom: 10%;
     left:7%;
     background-color: black;
-  }
+  } */

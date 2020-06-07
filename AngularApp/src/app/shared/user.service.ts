@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class UserService {
   selectedUser: User;
   users: User[];
-  readonly baseURL = 'http://localhost:3000/user';
+  readonly baseURL = 'http://localhost:3000/users';
 
   constructor(private http: HttpClient) { }
 
@@ -25,12 +25,4 @@ export class UserService {
   registerStore(usr: User){
     return this.http.put(this.baseURL+ `/${usr._id}`, usr);
   }
-  // return this.http.put(this.baseURL+ `/${usr._id}`, usr)
-  // .pipe(map(user => {
-  //     // store user details and jwt token in local storage to keep user logged in between page refreshes
-  //     // console.log(emp)
-  //     localStorage.setItem('currentUser', JSON.stringify(user));
-  //     // this.currentUserSubject.next(user);
-  //     return user;
-  // }));
 }

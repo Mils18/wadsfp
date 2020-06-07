@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
-
 import { UserService, AuthenticationService } from '../_services';
 import { User } from '../_models';
 @Component({
@@ -24,10 +22,12 @@ export class AccountSellerComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    console.log("testtest1");
     this.user = this.authenticationService.getLocalStorage();
     this.storeName = this.user.storeName;
     // this.doHaveStore = false;
     console.log("Storename",this.user.storeName);
+    
     if (this.user.storeName != ""){
       this.doHaveStore = true;
     }

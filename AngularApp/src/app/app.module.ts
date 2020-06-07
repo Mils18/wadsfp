@@ -37,7 +37,6 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { CartpageComponent } from './cartpage/cartpage.component';
 import { ProductComponent } from './product/product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { LoginComponent } from './login/login.component';
@@ -50,6 +49,7 @@ import { TestpageComponent } from './testpage/testpage.component';
 import { AccountSellerComponent } from './account-seller/account-seller.component';
 import { AccountBuyerComponent } from './account-buyer/account-buyer.component';
 import { OpenStoreComponent } from './open-store/open-store.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   imports: [
@@ -64,7 +64,6 @@ import { OpenStoreComponent } from './open-store/open-store.component';
     HomepageComponent,
     FooterComponent,
     HeaderComponent,
-    CartpageComponent,
     ProductComponent,
     AddProductComponent,
     LoginComponent,
@@ -74,6 +73,7 @@ import { OpenStoreComponent } from './open-store/open-store.component';
     AccountSellerComponent,
     AccountBuyerComponent,
     OpenStoreComponent,
+    CartComponent,
     // ProductDetailsNewComponent,
   ],
   providers: [

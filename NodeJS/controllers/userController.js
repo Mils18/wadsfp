@@ -42,7 +42,6 @@ router.post("/signup", (req, res, next) => {
               .catch(err => {
                 console.log(err);
                 res.status(500).json({
-                  message : savingerror,
                   error: err
                 });
               });

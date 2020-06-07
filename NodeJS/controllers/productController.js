@@ -18,10 +18,16 @@ router.get('/:id', (req, res) => {
 
     Product.findById(req.params.id, (err, doc) => {
         if (!err) { res.send(doc); }
-        else { console.log('Error in Retriving Product :' + JSON.stringify(err, undefined, 2)); }
+        else { console.log('Error in Retrieving Product :' + JSON.stringify(err, undefined, 2)); }
     });
 });
 
+router.get('/sellerId/:sellerId', (req, res) => {
+    Product.find({ sellerId: req.params.sellerId }, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Retrieving Product :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
 
 // parses Product objects into var emp, save it to 
 // Post Requests
@@ -29,6 +35,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     var emp = new Product({
         name: req.body.name,
+        sellerId: req.body.sellerId,
         description: req.body.description,
         price: req.body.price,
     });

@@ -23,7 +23,7 @@ export class AuthenticationService {
     }
 
     login(usr: User) {
-        return this.http.post<User>('http://localhost:3000/user/login', usr)
+        return this.http.post<User>('http://localhost:3000/users/login', usr)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
@@ -45,9 +45,6 @@ export class AuthenticationService {
         user = JSON.parse(localStorage.getItem('currentUser'));
         console.log("get local storage print user",user);
         return user;
-        // console.log('it\'s user id',user.id);
-        // console.log('getLocalStorage',localStorage.getItem('currentUser'));
-        // return localStorage.getItem('currentUser');
     }
 
     updateLocalStorage(storeName: string){

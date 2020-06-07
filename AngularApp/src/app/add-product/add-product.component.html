@@ -1,7 +1,8 @@
 <div class="col s5">
     <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
       <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="addProductService.selectedProduct._id">
-     
+      <input type="hidden" name="sellerId" #name="ngModel" [(ngModel)]="addProductService.selectedProduct.sellerId" >
+
      
       <div class="row">
         <div class="input-field col s12">

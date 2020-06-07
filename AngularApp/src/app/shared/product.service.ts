@@ -26,14 +26,17 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   postProduct(emp: Product) {
-    console.log('postProd')
     return this.http.post(this.baseURL, emp);
   }
 
   getProductList() {
     return this.http.get(this.baseURL);
   }
-  getSpecificProduct(_id: string) {
+
+  getProductListSellerId(sellerId : string) {
+    return this.http.get(this.baseURL+ '/sellerId'+`/${sellerId}`);
+  }
+  getProductByID(_id: string) {
     return this.http.get(this.baseURL + `/${_id}`);
   }
 
@@ -41,7 +44,7 @@ export class ProductService {
     return this.http.put(this.baseURL + `/${emp._id}`, emp);
   }
 
-  putProductTest(id: String){
+  putProductTest(id: string){
     return this.http.put(this.baseURL + `/${id}`,"abcde");
   }
 
