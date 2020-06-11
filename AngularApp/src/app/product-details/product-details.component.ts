@@ -53,18 +53,15 @@ export class ProductDetailsComponent implements OnInit {
       });
   }
 
-  checkBuyer(){
-    console.log("sellerId",this.sellerId);
-    console.log("buyerId",this.user.id);
-    console.log("price",this.price);
-
-    
-  }
-
   addToCartBtn(){
 
     if (this.sellerId != this.user.id){
-      var a = '{"_id":"","name":"'+ this.name +'","price":'+ this.price + ',"productId":"'+ this.id + '","sellerId":"'+ this.sellerId + '","buyerId":"'+ this.user.id+'" }';
+      var a = 
+      '{"_id":"","name":"'+ this.name +
+      '","price":'+ this.price + 
+      ',"productId":"'+ this.id + 
+      '","sellerId":"'+ this.sellerId + 
+      '","buyerId":"'+ this.user.id+'" }';
       console.log(a);
       this.cart = JSON.parse(a);
       console.log("cart",this.cart);

@@ -36,6 +36,10 @@ export class AccountSellerComponent implements OnInit {
   manageProduct(){
     this.router.navigate(['/manageProduct']);
   }
+  goToBuyerPage(){
+    this.router.navigate(['/account/buyer']);
+  }
+
   openStore(){
     this.router.navigate(['/account/seller/openStore']);
   }

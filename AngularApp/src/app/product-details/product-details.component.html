@@ -7,15 +7,6 @@
   <div class="container">
 
     <div class="row">
-
-      <!-- <div class="col-lg-3">
-        <h1 class="my-4">{{this.sellerId}}</h1>
-        <div class="list-group">
-          <a href="#" class="list-group-item active">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
-      </div> -->
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
@@ -29,20 +20,10 @@
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
             5.0 stars
           </div>
-          <!-- <div class = "row">
- 
-          </div> -->
-          <!-- <div class="number-input md-number-input">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-            <input class="quantity" min="0" name="quantity" value="1" type="number">
-            <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-          </div> -->
-  
+
           <button class="btn btn-success" *ngIf="!itsMyProduct" type="button" (click)="addToCartBtn()">Add to Cart</button>
 
         </div>
-        <!-- /.card -->
-
         <div class="card card-outline-secondary my-4">
           <div class="card-header">
             Product Reviews

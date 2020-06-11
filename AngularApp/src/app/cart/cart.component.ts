@@ -5,6 +5,11 @@ import { Router } from '@angular/router';
 import { User } from '../_models';
 import { Cart } from '../shared/cart.model';
 
+import { Order } from '../shared/order.model';
+import { OrderService } from '../shared/order.service';
+
+declare var M: any;
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -14,10 +19,12 @@ import { Cart } from '../shared/cart.model';
 })
 export class CartComponent implements OnInit {
   user:User;
-  totalPrice = 0;
+  totalPrice: number = 0;
+  order: Order;
 
   constructor(
     public cartService: CartService,
+    public orderService: OrderService,
     private router: Router,
     private authenticationService: AuthenticationService) { 
       this.authenticationService.currentUser.subscribe(x => this.user = x);
@@ -33,9 +40,9 @@ export class CartComponent implements OnInit {
         this.cartService.carts = res as Cart[];
         this.totalPrice = 0;
       for (var i = 0; i < this.cartService.carts.length; i++) {
-              this.totalPrice = this.totalPrice + this.cartService.carts[i].price;
+            this.totalPrice = this.totalPrice + this.cartService.carts[i].price;
             }
-      console.log(this.totalPrice);
+      console.log("carts",this.cartService.carts);
       });
 
     }
@@ -45,6 +52,38 @@ export class CartComponent implements OnInit {
           this.refreshCartList();
         });
       }
+    }
+    removeCart(){
+      for (var i = 0; i < this.cartService.carts.length; i++) {
+        console.log(this.cartService.carts[i]._id);
+        this.cartService.deleteCart(this.cartService.carts[i]._id).subscribe((res) => {
+          console.log("delete id",[i],this.cartService.carts[i]._id);
+        });
+      }
+    }
+    checkOutBtn(){
+      // Cart exists validation
+      if (this.cartService.carts.length != 0){
+        // set an order object
+        this.order = {
+          "_id":"",
+          "status":"paid",
+          "totalPrice": this.totalPrice,
+          "carts": this.cartService.carts
+        };
+        
+        // send it to backend, then add order
+        this.orderService.addOrder(this.order).subscribe((res) => {
+          console.log(res);
+          M.toast({ html: 'Order has been placed' });
+          // remove products in cart if order has been placed
+          this.removeCart();
+        });
+      }
+      else{
+        console.log("cart is empty");
+      }
+      
     }
 
 }

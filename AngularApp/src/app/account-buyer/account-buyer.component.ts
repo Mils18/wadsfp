@@ -30,11 +30,8 @@ export class AccountBuyerComponent implements OnInit {
         this.firstName = this.user.firstName;
         this.lastName = this.user.lastName;
   }
-
-
-
-  testPage() {
-    this.router.navigate(['/testPage']);
+  myOrder() {
+    this.router.navigate(['/account/buyer/orders']);
   }
   accountSeller() {
     this.router.navigate(['/account/seller']);

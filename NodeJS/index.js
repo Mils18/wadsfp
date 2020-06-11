@@ -8,6 +8,7 @@ var employeeController = require('./controllers/employeeController.js');
 var productController = require('./controllers/productController.js');
 var userController = require('./controllers/userController.js');
 var cartController = require('./controllers/cartController.js');
+var orderController = require('./controllers/orderController.js');
 
 
 var app = express();
@@ -23,3 +24,5 @@ app.use('/employees', employeeController);
 app.use('/products', productController);
 app.use('/users', userController);
 app.use('/carts', cartController);
+app.use('/orders', orderController);
+

@@ -50,6 +50,10 @@ import { AccountSellerComponent } from './account-seller/account-seller.componen
 import { AccountBuyerComponent } from './account-buyer/account-buyer.component';
 import { OpenStoreComponent } from './open-store/open-store.component';
 import { CartComponent } from './cart/cart.component';
+import { AccountBuyerOrdersComponent } from './account-buyer-orders/account-buyer-orders.component';
+import { AccountSellerOrdersComponent } from './account-seller-orders/account-seller-orders.component';
+import { AccountBuyerOrdersDetailsComponent } from './account-buyer-orders-details/account-buyer-orders-details.component';
+import { AccountSellerOrdersDetailsComponent } from './account-seller-orders-details/account-seller-orders-details.component';
 
 @NgModule({
   imports: [
@@ -74,6 +78,10 @@ import { CartComponent } from './cart/cart.component';
     AccountBuyerComponent,
     OpenStoreComponent,
     CartComponent,
+    AccountBuyerOrdersComponent,
+    AccountSellerOrdersComponent,
+    AccountBuyerOrdersDetailsComponent,
+    AccountSellerOrdersDetailsComponent,
     // ProductDetailsNewComponent,
   ],
   providers: [

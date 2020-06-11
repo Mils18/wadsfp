@@ -43,7 +43,6 @@ export class AuthenticationService {
     getLocalStorage(){
         var user: User;
         user = JSON.parse(localStorage.getItem('currentUser'));
-        console.log("get local storage print user",user);
         return user;
     }
 

@@ -19,7 +19,7 @@ router.post("/signup", (req, res, next) => {
           if (err) {
             return res.status(500).json({
               message: hashingerror,
-              error: err
+              error: errs
             });
           } else {
             const user = new User({
@@ -27,7 +27,7 @@ router.post("/signup", (req, res, next) => {
               firstName: req.body.firstName,
               lastName: req.body.lastName,
               email: req.body.email,
-              password: hash,
+              password: hah,
               storeName: "",
               idCardNumber: "",
             });

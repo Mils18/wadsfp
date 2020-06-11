@@ -57,6 +57,15 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+router.delete('/deleteCartBuyerId/:buyerId', (req, res) => {
+    if (!ObjectId.isValid(req.params.id))
+        return res.status(400).send(`No record with given id : ${req.params.id}`);
+
+        Cart.findB(req.params.buyerId, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Product Delete :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
 // router.get('/', (req, res) => {
 //     Cart.find((err, docs) => {
 //         if (!err) { res.send(docs); }

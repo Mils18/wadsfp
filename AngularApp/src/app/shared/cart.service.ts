@@ -19,8 +19,13 @@ export class CartService {
   getCartListBuyerId(buyerId : string) {
     return this.http.get(this.baseURL+ '/buyerId'+`/${buyerId}`);
   }
+  
   deleteCart(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
+  }
+
+  deleteCartBuyerId(buyerId : string) {
+    return this.http.delete(this.baseURL + '/deleteCartBuyerId'+`/${buyerId}`);
   }
 
 }
