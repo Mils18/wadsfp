@@ -8,7 +8,7 @@ import { Cart } from './cart.model';
 export class CartService {
   selectedCart: Cart;
   carts: Cart[];
-  readonly baseURL = 'http://localhost:3000/carts';
+  readonly baseURL = 'http://3.1.83.74:3000/carts';
 
   constructor(private http: HttpClient) { }
 

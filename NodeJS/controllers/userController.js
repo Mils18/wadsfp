@@ -27,7 +27,7 @@ router.post("/signup", (req, res, next) => {
               firstName: req.body.firstName,
               lastName: req.body.lastName,
               email: req.body.email,
-              password: hah,
+              password: req.body.password,
               storeName: "",
               idCardNumber: "",
             });

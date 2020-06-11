@@ -23,7 +23,7 @@ export class AuthenticationService {
     }
 
     login(usr: User) {
-        return this.http.post<User>('http://localhost:3000/users/login', usr)
+        return this.http.post<User>('http://3.1.83.74:3000/users/login', usr)
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
