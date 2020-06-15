@@ -9,8 +9,8 @@ import { User } from './user.model';
 export class OrderService {
   selectedOrder: Order;
   orders: Order[];
-  // readonly baseURL = 'http://3.1.83.74:3000/orders';
-  readonly baseURL = 'http://localhost:3000/orders';
+  readonly baseURL = 'http://3.1.83.74:3000/orders';
+  // readonly baseURL = 'http://localhost:3000/orders';
 
 
   constructor(private http: HttpClient) { }
