@@ -3,10 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../shared/product.service';
 import { Product } from '../shared/product.model';
 import { HttpClient } from '@angular/common/http';
-import {  AuthenticationService } from '../_services';
+import { AuthenticationService } from '../_services';
 import { User } from '../_models';
 import { Cart } from '../shared/cart.model';
 import { CartService } from '../shared/cart.service';
+import { UserService } from '../shared/user.service';
+import { first } from 'rxjs/operators';
 
 
 // import { products } from '../products';
@@ -25,19 +27,21 @@ export class ProductDetailsComponent implements OnInit {
   user: User;
   cart: Cart;
   itsMyProduct= false;
+  storeName: string='';
 
   // constructor(private httpClient:HttpClient) { }
   constructor( 
     private route: ActivatedRoute, 
     public productService: ProductService,
     public cartService: CartService,
+    public userService: UserService,
 
     private httpClient:HttpClient,
     private authenticationService: AuthenticationService) { 
       this.authenticationService.currentUser.subscribe(x => this.user = x);
     };
 
-    ngOnInit() : void{ 
+    ngOnInit() { 
       // Get id through URL
     this.id = this.route.snapshot.paramMap.get("prod_id");
     this.user = this.authenticationService.getLocalStorage();
@@ -45,8 +49,7 @@ export class ProductDetailsComponent implements OnInit {
       this.name = data.name;
       this.description = data.description;
       this.price = data.price;   
-      this.sellerId = data.sellerId;
-
+      this.sellerId = data.sellerId;  
       if (this.sellerId == this.user.id){
         this.itsMyProduct = true;
       }
@@ -74,6 +77,7 @@ export class ProductDetailsComponent implements OnInit {
   }
     
   }
+
 
   
 }

@@ -9,7 +9,9 @@ import { User } from './user.model';
 export class OrderService {
   selectedOrder: Order;
   orders: Order[];
-  readonly baseURL = 'http://3.1.83.74:3000/orders';
+  // readonly baseURL = 'http://3.1.83.74:3000/orders';
+  readonly baseURL = 'http://localhost:3000/orders';
+
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +22,11 @@ export class OrderService {
   getOrderListBuyerId(buyerId : string) {
     return this.http.get(this.baseURL+ '/buyerId'+`/${buyerId}`);
   }
-  // getOrderListSeller(usr : User) {
-  //   // return this.http.get(this.baseURL+ '/seller',usr);
-  // }
+
+  getOrderListSellerId(sellerId : string) {
+    return this.http.get(this.baseURL+ '/sellerId'+`/${sellerId}`);
+  }
+  
   deleteOrder(_id: string) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }

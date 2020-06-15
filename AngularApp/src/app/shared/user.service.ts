@@ -10,7 +10,9 @@ import { map } from 'rxjs/operators';
 export class UserService {
   selectedUser: User;
   users: User[];
-  readonly baseURL = 'http://3.1.83.74:3000/users';
+  // readonly baseURL = 'http://3.1.83.74:3000/users';
+  readonly baseURL = 'http://localhost:3000/users';
+
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +26,10 @@ export class UserService {
 
   registerStore(usr: User){
     return this.http.put(this.baseURL+ `/${usr._id}`, usr);
+  }
+
+  getStoreById(_id: string) {
+    var a =  this.http.post(this.baseURL + '/getStoreName', `/${_id}`);
+    console.log("a",a);
   }
 }

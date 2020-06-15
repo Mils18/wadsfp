@@ -1,1 +1,32 @@
-<p>account-seller-orders-details works!</p>
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+            <h3>Order Id {{this.order_id}} </h3>
+            <h5>Status  {{this.status}} </h5>
+            <h5>Transaction Value  {{this.totalPrice}} </h5>
+
+
+          <div class="row">
+            <table class="responsive-table highlight" style="color:black">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                  </tr>
+                </thead>
+
+                <tr *ngFor="let product of cartService.carts">
+                  <td>{{product.name}}</td>
+                  <td>{{product.price}}</td>
+                </tr>
+              </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+  </div>
+

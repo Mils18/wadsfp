@@ -23,6 +23,9 @@ export class AccountBuyerOrdersDetailsComponent implements OnInit {
   order_id:string='';
   status:string='';
   totalPrice:number;
+  names: String[];
+  arr = [];
+  arr2 = [];
 
   constructor( 
     private route: ActivatedRoute, 
@@ -45,7 +48,6 @@ export class AccountBuyerOrdersDetailsComponent implements OnInit {
         this.status = data.status;
         this.totalPrice = data.totalPrice;
         this.cartService.carts = data.carts;
-        console.log(this.cartService.carts);
       });
     }
 

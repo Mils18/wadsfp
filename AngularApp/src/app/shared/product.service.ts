@@ -21,7 +21,8 @@ import { Product } from './product.model';
 export class ProductService {
   selectedProduct: Product;
   products: Product[];
-  readonly baseURL = 'http://3.1.83.74:3000/products';
+  // readonly baseURL = 'http://3.1.83.74:3000/products';
+  readonly baseURL = 'http://localhost:3000/products';
 
   constructor(private http: HttpClient) { }
 
@@ -36,6 +37,7 @@ export class ProductService {
   getProductListSellerId(sellerId : string) {
     return this.http.get(this.baseURL+ '/sellerId'+`/${sellerId}`);
   }
+  
   getProductByID(_id: string) {
     return this.http.get(this.baseURL + `/${_id}`);
   }

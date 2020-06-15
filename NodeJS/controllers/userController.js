@@ -93,21 +93,6 @@ router.post("/login", (req, res, next)=>{
     });  
   })
   .catch()
-})
-router.delete("/:userId", (req, res, next) => {
-  User.remove({ _id: req.params.userId })
-    .exec()
-    .then(result => {
-      res.status(200).json({
-        message: "User deleted"
-      });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({
-        error: err
-      });
-    });
 });
 
 router.put("/:userId", (req, res, next) => {
@@ -132,21 +117,5 @@ router.put("/:userId", (req, res, next) => {
     });
 });
 
-// router.put('/:id', (req, res) => {
-//   if (!ObjectId.isValid(req.params.id))
-//       return res.status(400).send(`No record with given id : ${req.params.id}`);
-//   // User.find({ id: req.body.id }).exec()
-//   // .then(console.log("found"));
-
-//   // User.findByIdAndUpdate(req.params.id, { $set:
-//   //     {
-//   //       storeName: "req.storeName",
-//   //       idCardNumber: "req.idCardNumber"
-//   //     }
-//   //      }, { new: true }, (err, doc) => {
-//   //     if (!err) { res.send(doc); }
-//   //     else { console.log('Error in User Update :' + JSON.stringify(err, undefined, 2)); }
-//   // });
-// });
 
 module.exports = router;

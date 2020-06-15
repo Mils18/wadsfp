@@ -16,16 +16,13 @@
                   </tr>
                 </thead>
 
-                <tr *ngFor="let order of orderService.orders">
-                  <td>{{order.carts.name}}</td>
-                  <td>{{order.carts.price}}</td>
+                <tr *ngFor="let product of cartService.carts">
+                  <td>{{product.name}}</td>
+                  <td>{{product.price}}</td>
                 </tr>
               </table>
 
           </div>
-
-          <!-- <button class="btn btn-success" type="button" (click)="checkOutBtn()">Check Out</button> -->
-
         </div>
       </div>
     </div>

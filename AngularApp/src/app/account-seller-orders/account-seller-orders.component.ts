@@ -27,18 +27,19 @@ export class AccountSellerOrdersComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    // this.refreshOrderList();
+    this.refreshOrderList();
     this.user = this.authenticationService.getLocalStorage();
   }
 
-  // refreshOrderList() {
-  //   this.orderService.getOrderListStoreName(this.user.storeName).subscribe((res) => {
-  //     this.orderService.orders = res as Order[];
-  //   });
-  // }
-
-  orderDetails(_id: string) {
-    this.router.navigate(['/account/seller/orders/', _id]);
+  refreshOrderList() {
+    this.orderService.getOrderListSellerId(this.user.id).subscribe((res) => {
+      this.orderService.orders = res as Order[];
+    });
   }
+
+  // orderDetails(_id: string) {
+  //   this.router.navigate(['/account/seller/orders/', _id]);
+  // }
 }
+
 

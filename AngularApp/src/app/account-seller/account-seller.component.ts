@@ -43,5 +43,7 @@ export class AccountSellerComponent implements OnInit {
   openStore(){
     this.router.navigate(['/account/seller/openStore']);
   }
-
+  myOrder() {
+    this.router.navigate(['/account/seller/orders']);
+  }
 }
